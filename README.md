@@ -290,31 +290,3 @@ Once installed, `reattach-to-usernamespace` will be automatically detected.
 [MacPorts]: http://www.macports.org/
 [Homebrew]: http://brew.sh/
 
-### Using the configuration under Cygwin within Mintty
-
-**I don't recommend running this configuration with Cygwin anymore. Forking
-under Cygwin is extremely slow and this configuration issues a lot of
-`run-shell` commands under the hood. As such, you will experience high CPU
-usage. As an alternative consider using [Mintty terminal for WSL][wsltty].**
-
-![cygwin](https://cloud.githubusercontent.com/assets/553208/19741789/67a3f3d8-9bc2-11e6-9ecc-499fc0228ee6.png)
-
-It is possible to use this configuration under Cygwin within Mintty, however
-support for Unicode symbols and emojis lacks behind Mac and Linux.
-
-Particularly, Mintty's text rendering is implemented with GDI which has
-limitations:
-
-- color emojis are only available through DirectWrite starting with Windows 8.1
-- display of double width symbols, like the battery discharging symbol indicator
-  (U+1F50B) is buggy
-
-To get Unicode symbols displayed properly, you have to use [font linking].
-Open `regedit.exe` then navigate to the registry key at
-`HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\FontLink\SystemLink`
-and add a new entry for you preferred font to link it with the Segoe UI Symbol
-font.
-
-![regedit](https://cloud.githubusercontent.com/assets/553208/19741304/71a2f3ae-9bc0-11e6-96aa-4c09a812c313.png)
-
-[font linking]: https://msdn.microsoft.com/en-us/goglobal/bb688134.aspx
